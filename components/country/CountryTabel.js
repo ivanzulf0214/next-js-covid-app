@@ -28,7 +28,7 @@ export default function CountryTabel({ countries }) {
             <tbody className="text-lg">
                 {
                     countries && countries.map((country) => (
-                        <CountryItem country={country} />
+                        <CountryItem country={country} key={country.code} />
                     ))
                 }
             </tbody>

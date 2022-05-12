@@ -22,7 +22,7 @@ export default function Timeline({ timelines }) {
             <tbody className='text-lg'>
                 {
                     timelines && timelines.map((timeline) => (
-                        <TimelineItem timeline={timeline} />
+                        <TimelineItem timeline={timeline} key={timeline.date} />
                     ))
                 }
             </tbody>

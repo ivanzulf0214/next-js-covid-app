@@ -2,7 +2,7 @@ import NumberFormat from "react-number-format";
 
 export default function TimelineItem({ timeline }) {
     return (
-        <tr key={timeline.date}>
+        <tr>
             <td className='px-6 py-3 text-center' width='25%'>{timeline.date}</td>
             <td className='px-6 py-3 text-center' width='25%'>
                 <NumberFormat value={timeline.confirmed} displayType={'text'}
