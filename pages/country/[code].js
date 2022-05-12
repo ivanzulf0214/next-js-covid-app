@@ -10,11 +10,10 @@ export default function Country() {
     const [isLoading, setIsLoading] = useState(true)
 
     const router = useRouter()
+    const { code } = router.query
 
     useEffect(() => {
         if (!router.isReady) return
-
-        const { code } = router.query
         fetch(`https://corona-api.com/countries/${code}`)
             .then((res) => res.json())
             .then((data) => {
