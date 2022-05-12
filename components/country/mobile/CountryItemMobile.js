@@ -4,7 +4,7 @@ import Link from 'next/link'
 export default function CountryItemMobile({ country }) {
     return (
         <Link href={`country/${country.code}`}>
-            <div class="block p-4 w-full bg-white rounded-sm border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+            <div className="block p-4 w-full bg-white rounded-sm border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                 <table className="w-full border-slate-700 text-lg text-left text-black font-bold dark:text-gray-400">
                     <tr>
                         <td colSpan='2' className="px-6 py-4 text-2xl text-center">
