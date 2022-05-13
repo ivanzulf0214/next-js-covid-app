@@ -1,14 +1,13 @@
 import { React, useState, useEffect } from 'react'
 import { BrowserView, MobileView } from 'react-device-detect'
 import Head from 'next/head'
-import Link from 'next/link'
 import Loading from '../components/Loading'
 import CountryTable from '../components/country/CountryTable'
 
 export default function Home() {
+    const [masterData, setMasterData] = useState([])
     const [countries, setCountries] = useState([])
     const [isLoading, setIsLoading] = useState(true)
-    const [tempData, setTempData] = useState([])
     const [searchData, setSearchData] = useState('')
     const [searchActive, setSearchActive] = useState(false)
 
@@ -19,6 +18,7 @@ export default function Home() {
                 const countriesData = data.data
                 countriesData.sort((x, y) => y.latest_data.confirmed - x.latest_data.confirmed)
                 setCountries(countriesData)
+                setMasterData(countriesData)
                 setIsLoading(false)
             })
     }, [])
@@ -31,24 +31,24 @@ export default function Home() {
     const handleSubmit = (e) => {
         e.preventDefault()
 
+        if (searchData == '') {
+            resetData()
+            return
+        }
+        
         setSearchActive(true)
 
-        if (searchData == '' && tempData != null) {
-            setCountries(tempData)
-            setTempData([])
-        } else {
-            const regex = new RegExp(searchData)
+        const regex = new RegExp(searchData)
 
-            const filtered = countries.filter(country => regex.test(country.name))
-
-            setTempData(countries)
+        const filtered = masterData.filter(country => regex.test(country.name))
+        
+        if (filtered != null) {
             setCountries(filtered)
         }
     }
 
     const resetData = () => {
-        setCountries(tempData)
-        setTempData([])
+        setCountries(masterData)
         setSearchData('')
         setSearchActive(false)
     }
@@ -70,7 +70,7 @@ export default function Home() {
                                 {
                                     searchActive &&
                                     <div className='mt-2'>
-                                        <button onClick={resetData}>Clear filter</button>
+                                        <button type='button' onClick={resetData}>Clear filter</button>
                                     </div>
                                 }
                             </div>
@@ -90,7 +90,7 @@ export default function Home() {
                             {
                                 searchActive &&
                                 <div className='mt-2'>
-                                    <button className='px-2 py-1 bg-slate-600 text-white border rounded-sm' onClick={resetData}>Clear filter</button>
+                                    <button type='button' className='px-2 py-1 bg-slate-600 text-white border rounded-sm' onClick={resetData}>Clear filter</button>
                                 </div>
                             }
                         </form>

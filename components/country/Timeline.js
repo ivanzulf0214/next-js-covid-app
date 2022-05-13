@@ -25,8 +25,8 @@ export default function Timeline({ timelines }) {
                     </thead>
                     <tbody className='text-lg'>
                         {
-                            timelines && timelines.map((timeline) => (
-                                <TimelineItem timeline={timeline} key={timeline.date} />
+                            timelines && timelines.map((timeline, index) => (
+                                <TimelineItem timeline={timeline} key={index} />
                             ))
                         }
                     </tbody>
@@ -34,8 +34,8 @@ export default function Timeline({ timelines }) {
             </BrowserView>
             <MobileView>
                 {
-                    timelines && timelines.map((timeline) => (
-                        <TimelineItemMobile timeline={timeline} key={timeline.date} />
+                    timelines && timelines.map((timeline, index) => (
+                        <TimelineItemMobile timeline={timeline} key={index} />
                     ))
                 }
             </MobileView>
