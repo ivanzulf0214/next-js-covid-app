@@ -35,13 +35,13 @@ export default function Home() {
             resetData()
             return
         }
-        
+
         setSearchActive(true)
 
-        const regex = new RegExp(searchData)
+        const regex = new RegExp(capitalize(searchData))
 
         const filtered = masterData.filter(country => regex.test(country.name))
-        
+
         if (filtered != null) {
             setCountries(filtered)
         }
@@ -51,6 +51,13 @@ export default function Home() {
         setCountries(masterData)
         setSearchData('')
         setSearchActive(false)
+    }
+
+    const capitalize = (word) => {
+        return word
+            .toLowerCase()
+            .replace(/\w/, firstLetter => firstLetter.toUpperCase());
+
     }
 
     if (isLoading) return <Loading />

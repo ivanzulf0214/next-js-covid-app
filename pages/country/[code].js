@@ -6,6 +6,7 @@ import Loading from '../../components/Loading'
 import LatestData from '../../components/country/LatestData'
 import Timeline from '../../components/country/Timeline'
 import { BrowserView, MobileView } from 'react-device-detect'
+import LineChart from '../../components/LineChart'
 
 export default function Country() {
     const [country, setCountry] = useState({})
@@ -41,6 +42,10 @@ export default function Country() {
                     <h1 className='text-5xl mt-5'>Detail for {country.name}</h1>
                     <LatestData country={country} />
 
+                    <div className='mt-10 w-full flex justify-center items-center'>
+                        <LineChart timelines={country.timeline} countryName={country.name} />
+                    </div>
+
                     <div className='mt-10'>
                         <h3 className='text-3xl'>Timeline</h3>
                         <Timeline timelines={country.timeline} />
@@ -55,6 +60,10 @@ export default function Country() {
 
                     <h1 className='text-3xl mt-5'>Detail for {country.name}</h1>
                     <LatestData country={country} />
+
+                    <div className='mt-10 w-full flex justify-center items-center'>
+                        <LineChart timelines={country.timeline} countryName={country.name} />
+                    </div>
 
                     <div className='mt-10'>
                         <h3 className='text-3xl'>Timeline</h3>
