@@ -10,14 +10,17 @@ export default function TimelineItemMobile({ timeline }) {
                 <div className="p-2 flex flex-col w-1/3 items-center gap-2 bg-slate-700 text-white rounded-md border border-slate-400 shadow-sm">
                     <span className="text-center text-sm">Confirmed</span>
                     <NumberFormat value={timeline.confirmed} displayType={'text'} thousandSeparator={true} />
+                    <NumberFormat value={`(${timeline.new_confirmed})`} displayType={'text'} thousandSeparator={true} prefix='+' className='text-xs' />
                 </div>
                 <div className="p-2 flex flex-col w-1/3 items-center gap-2 bg-green-700 text-white rounded-md border border-green-400 shadow-sm">
                     <span className="text-center text-sm">Recovered</span>
                     <NumberFormat value={timeline.recovered} displayType={'text'} thousandSeparator={true} />
+                    <NumberFormat value={`(${timeline.new_recovered})`} displayType={'text'} thousandSeparator={true} prefix='+' className='text-xs' />
                 </div>
                 <div className="p-2 flex flex-col w-1/3 items-center gap-2 bg-red-700 text-white rounded-md border border-red-400 shadow-sm">
                     <span className="text-center text-sm">Deaths</span>
                     <NumberFormat value={timeline.deaths} displayType={'text'} thousandSeparator={true} />
+                    <NumberFormat value={`(${timeline.new_deaths})`} displayType={'text'} thousandSeparator={true} prefix='+' className='text-xs' />
                 </div>
             </div>
         </div>

@@ -2,12 +2,12 @@ import CountryItem from "./CountryItem"
 import { BrowserView, MobileView } from 'react-device-detect'
 import CountryItemMobile from "./mobile/CountryItemMobile"
 
-export default function CountryTabel({ countries }) {
+export default function CountryTable({ countries }) {
     return (
         <div>
             <BrowserView>
-                <table className="w-full border-2 text-sm text-left text-gray-500 dark:text-gray-400">
-                    <thead className="text-xl text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
+                <table className="w-full border-2 text-sm text-left text-gray-500">
+                    <thead className="text-xl text-gray-700 uppercase bg-gray-100">
                         <tr>
                             <th scope="col" className="px-6 py-3 border-2">
                                 Territory
