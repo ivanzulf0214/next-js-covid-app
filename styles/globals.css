@@ -8,6 +8,7 @@ html,
 body {
   padding: 0;
   margin: 0;
+  max-width: 100%;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
@@ -20,4 +21,32 @@ a {
 * {
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
+}
+
+.ball {
+  animation: loading .7s ease-in infinite;
+}
+
+.ball-one {
+  animation-delay: 0.1s;
+}
+
+.ball-two {
+  animation-delay: 0.25s;
+}
+
+.ball-three {
+  animation-delay: 0.4s;
+}
+
+@keyframes loading {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
